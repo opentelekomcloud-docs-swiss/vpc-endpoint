@@ -8,26 +8,26 @@ Querying Resources by Tag
 Function
 --------
 
-This API is used to query resources under the tenant using tags.
+This API is used to query resources of a tenant by tag.
 
 URI
 ---
 
 POST /v1/{project_id}/{resource_type}/resource_instances/action
 
-:ref:`Table 1 <vpcep_06_0501__table51771440203117>` describes the required parameters.
+:ref:`Table 1 <vpcep_06_0501__table51771440203117>` describes parameters in this URI.
 
 .. _vpcep_06_0501__table51771440203117:
 
-.. table:: **Table 1** Parameter description
+.. table:: **Table 1** URI parameters
 
-   +---------------+-----------+--------+--------------------------------------------------------------------------------+
-   | Parameter     | Mandatory | Type   | Description                                                                    |
-   +===============+===========+========+================================================================================+
-   | project_id    | Yes       | String | Specifies the project ID.                                                      |
-   +---------------+-----------+--------+--------------------------------------------------------------------------------+
-   | resource_type | Yes       | String | Specifies the resource type. The type is **endpoint_service** or **endpoint**. |
-   +---------------+-----------+--------+--------------------------------------------------------------------------------+
+   +---------------+-----------+--------+------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter     | Mandatory | Type   | Description                                                                                                                  |
+   +===============+===========+========+==============================================================================================================================+
+   | project_id    | Yes       | String | Specifies the project ID. For details about how to obtain the project ID, see :ref:`Obtaining a Project ID <vpcep_08_0003>`. |
+   +---------------+-----------+--------+------------------------------------------------------------------------------------------------------------------------------+
+   | resource_type | Yes       | String | Specifies the resource type, which can be **endpoint_service** or **endpoint**.                                              |
+   +---------------+-----------+--------+------------------------------------------------------------------------------------------------------------------------------+
 
 Request
 -------
@@ -67,7 +67,7 @@ Request
       +=================+=================+=================+===================================================================================================================================================================================================================================================================================================================================================+
       | key             | Yes             | String          | Specifies the tag key. Each tag key contains a maximum of 127 unicode characters but cannot be left blank. The system does not verify the character set of **key** when searching for resources. **key** cannot be empty, an empty string, or spaces. Before using **key**, delete single-byte character (SBC) spaces before and after the value. |
       +-----------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | values          | Yes             | List<String>    | Lists tag values. Each value contains a maximum of 255 Unicode characters. Before using **values**, delete SBC spaces before and after the value.                                                                                                                                                                                                 |
+      | values          | Yes             | List<String>    | Specifies the tag value list. Each value contains a maximum of 255 Unicode characters. Before using **values**, delete SBC spaces before and after the value.                                                                                                                                                                                     |
       |                 |                 |                 |                                                                                                                                                                                                                                                                                                                                                   |
       |                 |                 |                 | The value can be an empty array but cannot be left blank.                                                                                                                                                                                                                                                                                         |
       |                 |                 |                 |                                                                                                                                                                                                                                                                                                                                                   |
@@ -88,11 +88,11 @@ Request
 
 -  Example request
 
-   POST https://127.0.0.1:7443/v1/{project_id}/endpoint_service/resource_instances/action
+   POST https://{endpoint}/v1/{project_id}/endpoint_service/resource_instances/action
 
-   or POST https://127.0.0.1:7443/v1/{project_id}/endpoint/resource_instances/action
+   or POST https://{endpoint}/v1/{project_id}/endpoint/resource_instances/action
 
-   or POST https://127.0.0.1:7443/v1/{project_id}/{resource_type}/resource_instances/action
+   or POST https://{endpoint}/v1/{project_id}/{resource_type}/resource_instances/action
 
    -  Request body when **action** is set to **filter**
 
@@ -271,7 +271,7 @@ Response
              "total_count": 1000
          }
 
-Status Code
------------
+Status Codes
+------------
 
-For details about status codes, see :ref:`Status Code <vpcep_08_0001>`.
+See :ref:`Status Codes <vpcep_08_0001>`.
