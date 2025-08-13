@@ -315,6 +315,7 @@ Response
           "id":"4189d3c2-8882-4871-a3c2-d380272eed83",
           "port_id":"4189d3c2-8882-4871-a3c2-d380272eed88",
           "vpc_id":"4189d3c2-8882-4871-a3c2-d380272eed80",
+          "pool_id":"5289d3c2-8882-4871-a3c2-d380272eed80",
           "status":"available",
           "approval_enabled":false,
           "service_name":"test123",

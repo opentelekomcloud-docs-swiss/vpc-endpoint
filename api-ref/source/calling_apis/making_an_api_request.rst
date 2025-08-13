@@ -130,7 +130,7 @@ In the case of the API used to `obtain a user token <https://docs.sc.otc.t-syste
                "password": {
                    "user": {
                        "name": "username",
-                       "password": "********",
+                       "password": "$ADMIN_PASS",     //You are advised to store it in ciphertext in the configuration file or an environment variable and decrypt it when needed to ensure security.
                        "domain": {
                            "name": "domainname"
                        }

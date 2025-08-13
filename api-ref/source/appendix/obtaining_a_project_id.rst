@@ -64,7 +64,7 @@ To obtain a project ID from the console, perform the following operations:
    On the **My Credentials** page, view the project ID (value in the **Project ID** column).
 
 
-.. figure:: /_static/images/en-us_image_0000001224894125.png
+.. figure:: /_static/images/en-us_image_0000002017204900.png
    :alt: **Figure 1** Viewing the project ID
 
    **Figure 1** Viewing the project ID
