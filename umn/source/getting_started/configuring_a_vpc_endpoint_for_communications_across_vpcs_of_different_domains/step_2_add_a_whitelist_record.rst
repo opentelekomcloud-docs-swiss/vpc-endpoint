@@ -10,14 +10,20 @@ Scenarios
 
 Permission management controls the access of a VPC endpoint in one domain to a VPC endpoint service in another.
 
-After a VPC endpoint service is created, you can add an authorized domain ID to or delete it from the whitelist of the endpoint service.
+After a VPC endpoint service is created, you can add or delete an authorized domain ID to and from the whitelist of the VPC endpoint service.
 
-The following operations describe how to obtain your own domain ID and add it to the whitelist of an existing VPC endpoint service in another domain.
+The following operations describe how to obtain your domain ID and add it to the whitelist of another user's VPC endpoint services.
 
 Prerequisites
 -------------
 
-The required VPC endpoint service already exists.
+The required VPC endpoint service is available.
+
+Constraints
+-----------
+
+-  The VPC endpoint and the VPC endpoint service must be deployed in the same region.
+-  Before you configure the whitelist for a VPC endpoint service, obtain the domain ID of the associated VPC endpoint.
 
 Obtain the ID of Your Own Domain
 --------------------------------
@@ -32,7 +38,7 @@ Obtain the ID of Your Own Domain
 
       **Figure 1** My Credentials
 
-   The **My Credentials** page is displayed. You can view the Domain ID of VPC 1.
+   The **My Credentials** page is displayed. You can view the domain ID of VPC 1.
 
 
    .. figure:: /_static/images/en-us_image_0000001180097640.png
@@ -40,21 +46,20 @@ Obtain the ID of Your Own Domain
 
       **Figure 2** My Credentials
 
-Add an Authorized Domain ID to the Whitelist of a VPC Endpoint Service
-----------------------------------------------------------------------
+Add Domain IDs to Be Authorized to the Whitelist of a VPC Endpoint Service
+--------------------------------------------------------------------------
 
-#. Log in to the management console.
 #. Click |image1| in the upper left corner and select the required region and project.
 
-3. Choose **Service List** > **Networking** > **VPC Endpoint**.
+2. Click **Service List** and choose **Networking** > **VPC Endpoint**.
 
-4. In the navigation pane on the left, choose **VPC Endpoint** > **VPC Endpoint Services**.
+3. In the navigation pane on the left, choose **VPC Endpoint** > **VPC Endpoint Services**.
 
-5. In the VPC endpoint service list, locate the target VPC endpoint service and click its name.
+4. In the VPC endpoint service list, locate the VPC endpoint service and click its name.
 
-6. On the displayed page, select the **Permission Management** tab and click **Add to Whitelist**.
+5. On the displayed page, select the **Permission Management** tab and click **Add to Whitelist**.
 
-7. Enter an authorized domain ID in the required format and click **OK**.
+6. Enter an authorized domain ID in the required format and click **OK**.
 
 
    .. figure:: /_static/images/en-us_image_0000001225258021.png
@@ -71,7 +76,5 @@ Add an Authorized Domain ID to the Whitelist of a VPC Endpoint Service
          *domain_id* indicates the ID of the authorized domain, for example, **iam:domain::1564ec50ef2a47c791ea5536353ed4b9**
 
       -  Adding **\*** to the whitelist means that all users can access the VPC endpoint service.
-
-8. Click **OK**.
 
 .. |image1| image:: /_static/images/en-us_image_0289945877.png

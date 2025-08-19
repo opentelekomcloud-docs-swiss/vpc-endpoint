@@ -1,17 +1,16 @@
-:original_name: en-us_topic_0154804561.html
+:original_name: vpcep_03_0500.html
 
-.. _en-us_topic_0154804561:
+.. _vpcep_03_0500:
 
-What Is a Quota?
-================
+Quotas
+======
 
+What Is Quota?
+--------------
 
-What Is a Quota?
-----------------
+Quotas can limit the number or amount of resources available to users, such as the maximum number of ECS or EVS disks that can be created.
 
-Quotas are enforced for service resources on the platform to prevent unforeseen spikes in resource usage. Quotas can limit the number and capacity of resources available to users, for example, how many cloud resources you can create.
-
-You can also increase the quota if the existing quota cannot meet your service requirements.
+If the existing resource quota cannot meet your service requirements, you can apply for a higher quota.
 
 How Do I View My Quotas?
 ------------------------
@@ -31,9 +30,9 @@ How Do I View My Quotas?
 How Do I Apply for a Higher Quota?
 ----------------------------------
 
-The system does not support online quota adjustment. If you need to adjust a quota, contact the administrator.
+The system does not support online quota adjustment. If you need to adjust a quota, contact the operations administrator.
 
-Before contacting the administrator, make sure that the following information has been obtained:
+Before contacting the operations administrator, make sure that the following information has been obtained:
 
 -  Domain name, project name, and project ID, which can be obtained by performing the following operations:
 
@@ -46,4 +45,4 @@ Before contacting the administrator, make sure that the following information ha
    -  Required quota
 
 .. |image1| image:: /_static/images/en-us_image_0275513364.png
-.. |image2| image:: /_static/images/en-us_image_0152727234.png
+.. |image2| image:: /_static/images/en-us_image_0000002189833272.png

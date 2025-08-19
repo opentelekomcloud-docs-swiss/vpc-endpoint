@@ -10,7 +10,7 @@ Scenarios
 
 Permission management controls the access of a VPC endpoint in one domain to a VPC endpoint service in another.
 
-After a VPC endpoint service is created, you can add an authorized domain ID to or delete it from the whitelist of the endpoint service.
+After a VPC endpoint service is created, you can add or delete an authorized domain ID to and from the whitelist of the VPC endpoint service.
 
 -  If the whitelist is empty, access from a VPC endpoint in another domain is not allowed.
 -  If an authorized domain ID is already in the whitelist, you can use this domain to create a VPC endpoint for connecting to the VPC endpoint service.
@@ -18,17 +18,23 @@ After a VPC endpoint service is created, you can add an authorized domain ID to 
 
 This section describes how to add or delete a whitelist record for a VPC endpoint service.
 
+Constraints
+-----------
+
+-  The VPC endpoint and the VPC endpoint service must be deployed in the same region.
+-  Before you configure the whitelist for a VPC endpoint service, obtain the domain ID of the associated VPC endpoint.
+
 Add a Whitelist Record
 ----------------------
 
 #. Log in to the management console.
 #. Click |image1| in the upper left corner and select the required region and project.
 
-3. Choose **Service List** > **Networking** > **VPC Endpoint**.
+3. Click **Service List** and choose **Networking** > **VPC Endpoint**.
 
 4. In the navigation pane on the left, choose **VPC Endpoint** > **VPC Endpoint Services**.
 
-5. In the VPC endpoint service list, locate the target VPC endpoint service and click its name.
+5. In the VPC endpoint service list, locate the VPC endpoint service and click its name.
 
 6. On the displayed page, select the **Permission Management** tab and click **Add to Whitelist**.
 
@@ -55,18 +61,17 @@ Delete a Whitelist Record
 
 #. Log in to the management console.
 #. Click |image2| in the upper left corner and select the required region and project.
-
-3. Choose **Service List** > **Networking** > **VPC Endpoint**.
+#. Click **Service List** and choose **Networking** > **VPC Endpoint**.
 
 4. In the navigation pane on the left, choose **VPC Endpoint** > **VPC Endpoint Services**.
 
-5. In the VPC endpoint service list, locate the target VPC endpoint service and click its name.
+5. In the VPC endpoint service list, locate the VPC endpoint service and click its name.
 
-6. On the displayed page, select the **Permission Management** tab, locate the target domain ID, and click **Delete** in the **Operation** column.
+6. On the displayed page, click the **Permission Management** tab, locate the domain ID, and click **Delete** in the **Operation** column.
 
    To delete multiple whitelist records, select all the target domain IDs and click **Delete** in the upper left corner.
 
-7. Click **Yes**.
+7. In the displayed **Delete from Whitelist** dialog box, click **OK**.
 
 .. |image1| image:: /_static/images/en-us_image_0289945877.png
 .. |image2| image:: /_static/images/en-us_image_0289945877.png
