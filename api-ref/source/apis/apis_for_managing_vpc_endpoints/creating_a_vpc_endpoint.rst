@@ -129,6 +129,20 @@ Request
       "enable_dns":true
       }
 
+   .. code-block::
+
+      {
+       "subnet_id": "61881173-3899-4981-a700-170253d469b6",
+       "endpoint_service_id": "2da0fe8f-5cb7-4d93-bb35-dc05334da1be",
+       "vpc_id": "d7b2bf07-1b4c-43fa-bd88-d80c6ebea140",
+       "tags": [
+        {
+         "key": "test2",
+         "value": "test2"
+        }
+       ]
+      }
+
 Response
 --------
 
