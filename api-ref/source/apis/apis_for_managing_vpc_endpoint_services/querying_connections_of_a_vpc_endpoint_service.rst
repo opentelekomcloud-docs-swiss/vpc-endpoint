@@ -8,70 +8,72 @@ Querying Connections of a VPC Endpoint Service
 Function
 --------
 
-This API is used to query connections of a VPC endpoint service. The marker ID is the unique ID of each connection.
+This API is used to query connections of a VPC endpoint service. **marker_id** is the unique ID of each connection.
 
 URI
 ---
 
 GET /v1/{project_id}/vpc-endpoint-services/{vpc_endpoint_service_id}/connections?id={vpc_endpoint_id}&marker_id={marker_id}&status={status}&sort_key={sort_key}&sort_dir={sort_dir}&limit={limit}&offset={offset}
 
-:ref:`Table 1 <vpcep_06_0206__table36274863>` describes the required parameters.
+:ref:`Table 1 <vpcep_06_0206__table36274863>` describes parameters in this URI.
 
 .. _vpcep_06_0206__table36274863:
 
-.. table:: **Table 1** Parameters
+.. table:: **Table 1** URI parameters
 
-   +-------------------------+-----------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Parameter               | Mandatory | Description                                                                                                                    |
-   +=========================+===========+================================================================================================================================+
-   | project_id              | Yes       | Specifies the project ID. For details about how to obtain the project ID, see :ref:`Obtaining a Project ID <vpcep_08_0003_0>`. |
-   +-------------------------+-----------+--------------------------------------------------------------------------------------------------------------------------------+
-   | vpc_endpoint_service_id | Yes       | Specifies the ID of the VPC endpoint service.                                                                                  |
-   +-------------------------+-----------+--------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter               | Mandatory | Description                                                                                                                  |
+   +=========================+===========+==============================================================================================================================+
+   | project_id              | Yes       | Specifies the project ID. For details about how to obtain the project ID, see :ref:`Obtaining a Project ID <vpcep_08_0003>`. |
+   +-------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------+
+   | vpc_endpoint_service_id | Yes       | Specifies the ID of the VPC endpoint service.                                                                                |
+   +-------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------+
+
+.. table:: **Table 2** Query parameters
+
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter       | Mandatory       | Type            | Description                                                                                                                                                  |
+   +=================+=================+=================+==============================================================================================================================================================+
+   | id              | No              | String          | Specifies the unique ID of the VPC endpoint.                                                                                                                 |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | marker_id       | No              | String          | Specifies the packet ID of the VPC endpoint.                                                                                                                 |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | status          | No              | String          | Specifies the connection status of the VPC endpoint.                                                                                                         |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | -  **pendingAcceptance**: The VPC endpoint is to be accepted.                                                                                                |
+   |                 |                 |                 | -  **accepted**: The VPC endpoint has been accepted.                                                                                                         |
+   |                 |                 |                 | -  **rejected**: The VPC endpoint has been rejected.                                                                                                         |
+   |                 |                 |                 | -  **failed**: The VPC endpoint service failed to be created.                                                                                                |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | sort_key        | No              | String          | Specifies the sorting field of the VPC endpoint list. The field can be:                                                                                      |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | -  **created_at**: VPC endpoints are sorted by creation time.                                                                                                |
+   |                 |                 |                 | -  **updated_at**: VPC endpoints are sorted by update time.                                                                                                  |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | The default field is **created_at**.                                                                                                                         |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | sort_dir        | No              | String          | Specifies the sorting method of the VPC endpoint list. The method can be:                                                                                    |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | -  **desc**: VPC endpoints are sorted in descending order.                                                                                                   |
+   |                 |                 |                 | -  **asc**: VPC endpoints are sorted in ascending order.                                                                                                     |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | The default method is **desc**.                                                                                                                              |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | limit           | No              | Integer         | Specifies the maximum number of connections displayed on each page.                                                                                          |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | The number ranges from **0** to **1000** and is generally **10**, **20**, or **50**. The default number is **10**.                                           |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | offset          | No              | Integer         | Specifies the offset.                                                                                                                                        |
+   |                 |                 |                 |                                                                                                                                                              |
+   |                 |                 |                 | All VPC endpoint services after this offset will be queried. The offset must be an integer greater than 0 but less than the number of VPC endpoint services. |
+   +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Request
 -------
 
 -  Parameter description
 
-   .. table:: **Table 2** Request parameters
-
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Parameter       | Mandatory       | Type            | Description                                                                                                                                                  |
-      +=================+=================+=================+==============================================================================================================================================================+
-      | id              | No              | String          | Specifies the unique ID of the VPC endpoint.                                                                                                                 |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | marker_id       | No              | String          | Specifies the packet ID of the VPC endpoint.                                                                                                                 |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | status          | No              | String          | Specifies the connection status of the VPC endpoint.                                                                                                         |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | -  **pendingAcceptance**: The VPC endpoint is pending acceptance.                                                                                            |
-      |                 |                 |                 | -  **accepted**: The VPC endpoint has been accepted.                                                                                                         |
-      |                 |                 |                 | -  **rejected**: The VPC endpoint has been rejected.                                                                                                         |
-      |                 |                 |                 | -  **failed**: The VPC endpoint service failed to be created.                                                                                                |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | sort_key        | No              | String          | Specifies the sorting field of the VPC endpoint list, which can be:                                                                                          |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | -  **create_at**: VPC endpoints are sorted by creation time.                                                                                                 |
-      |                 |                 |                 | -  **update_at**: VPC endpoints are sorted by update time.                                                                                                   |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | The default field is **create_at**.                                                                                                                          |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | sort_dir        | No              | String          | Specifies the sorting method of the VPC endpoint list, which can be:                                                                                         |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | -  **desc**: indicates that VPC endpoints are sorted in the descending order.                                                                                |
-      |                 |                 |                 | -  **asc**: indicates that VPC endpoints are sorted in ascending order.                                                                                      |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | The default method is **desc**.                                                                                                                              |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | limit           | No              | Integer         | Specifies the maximum number of connections displayed on each page.                                                                                          |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | The number ranges from **0** to **1000** and is generally **10**, **20**, or **50**. The default value is **10**.                                            |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-      | offset          | No              | Integer         | Specifies the offset.                                                                                                                                        |
-      |                 |                 |                 |                                                                                                                                                              |
-      |                 |                 |                 | All VPC endpoint services after this offset will be queried. The offset must be an integer greater than 0 but less than the number of VPC endpoint services. |
-      +-----------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   None
 
 -  Example request
 
@@ -98,7 +100,7 @@ Response
 
    .. _vpcep_06_0206__table35346078:
 
-   .. table:: **Table 4** Connection parameters
+   .. table:: **Table 4** connection parameters
 
       +-----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | Parameter             | Type                  | Description                                                                                                                                                    |
@@ -119,7 +121,7 @@ Response
       +-----------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
       | status                | String                | Specifies the connection status of the VPC endpoint.                                                                                                           |
       |                       |                       |                                                                                                                                                                |
-      |                       |                       | -  **pendingAcceptance**: The VPC endpoint is pending acceptance.                                                                                              |
+      |                       |                       | -  **pendingAcceptance**: The VPC endpoint is to be accepted.                                                                                                  |
       |                       |                       | -  **creating**: The VPC endpoint is being created.                                                                                                            |
       |                       |                       | -  **accepted**: The VPC endpoint has been accepted.                                                                                                           |
       |                       |                       | -  **rejected**: The VPC endpoint has been rejected.                                                                                                           |
@@ -168,7 +170,7 @@ Response
         "total_count":2
       }
 
-Status Code
------------
+Status Codes
+------------
 
-For details about status codes, see :ref:`Status Code <vpcep_08_0001>`.
+See :ref:`Status Codes <vpcep_08_0001>`.
